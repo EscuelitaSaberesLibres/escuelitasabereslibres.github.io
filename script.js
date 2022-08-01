@@ -1,24 +1,10 @@
-var cerrarInfo = () => {
-  
+//Cambiar color del fondo
+
+const cambiarBackground = (backgroundId) => {
+  const background = ["#A3E4D7","#E6EDEC","#EBDEF0","#D5F5E3","#D5F5E3","#D9D6D4","linen"]
+                     // 0     , 1       ,  2      , 3        ,    4    ,  5     , 6     
+  document.querySelector("#main").style.background = background[backgroundId];
 }
-
-
-/*TODOS*/
-
-//función para cambiar titulo de páginas
-//usar una funcion de router para todas las páginas
-//función para cambiar el color de fondo según lo requieran
-// buscar cómo estandarizar el look del sitio
-// usar reset: true para los templates
-// colores en forma de circular gradient
-
-/*$(document).ready(function() {
-$(".inside").click(function () {
-    $(".inside").removeClass("active");
-    // $(".tab").addClass("active"); // instead of this do the below 
-    $(this).addClass("active");   
-});
-});*/
 
 // controla la fecha y que se mantenga acutalizada durante el tiempo
 
@@ -103,13 +89,7 @@ const borrarContenido = () => {
   $(".dinamicos").html("");
 };
 
-//Cambiar color del fondo
 
-const cambiarBackground = (backgroundId) => {
-  const background = ["#A3E4D7","#E6EDEC","#EBDEF0","#D5F5E3","#D5F5E3","#D9D6D4","linen"]
-                     // 0     , 1       ,  2      , 3        ,    4    ,  5     , 6     
-  document.querySelector("#main").style.background = background[backgroundId];
-}
 
 // INICIO
 
