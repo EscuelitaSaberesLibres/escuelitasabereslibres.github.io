@@ -1,4 +1,596 @@
-<!DOCTYPE html5>
-<html>
-  <div>tamos redi</div>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" href="https://i.imgur.com/z6jrESx.png" />
+    <title>Escuelita de Saberes Libres</title>
+    <link rel="canonical" href="" />
+    <meta name="description" content="Escuelita de Saberes Libres" />
+    <meta name="robots" content="index,follow" />
+    <meta
+      property="og:title"
+      content="Escuelita de Saberes Libres"
+    />
+    <meta property="og:type" content="article" />
+    <meta
+      property="og:url"
+      content="https://escuelitadesabereslibres.glitch.me"
+    />
+    <meta
+      property="og:description"
+      content="Comunidad Tejedora de Sueños y Danza de Saberes en Libertad"
+    />
+    <meta property="og:image" content="https://i.imgur.com/7te7fQn.png" />
+    <meta name="twitter:card" content="summary" />
+
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="hover.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css"
+    />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css">
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+  </head>
+  <body>
+    <main id="main" class="redondear">
+      <div class="topnav" id="mainNav">
+        <div>
+          <a class="navTitle active redondear" href="/" data-navigo
+            >Escuelita de Saberes Libres</a
+          >
+        </div>
+        <a
+          class="redondear"
+          href="/calendario"
+          onclick="controlNav()"
+          data-navigo
+          >Calendario</a
+        >
+        <a
+          class="redondear"
+          href="/cuadernos"
+          onclick="controlNav()"
+          data-navigo
+          >Cuaderno</a
+        >
+        <a
+          class="redondear"
+          href="/conozcanos"
+          onclick="controlNav()"
+          data-navigo
+          >Conózcanos</a
+        >
+        <a
+          class="redondear"
+          href="/danzasaberes"
+          onclick="controlNav()"
+          data-navigo
+          >Danza de Saberes</a
+        >
+        <a
+          class="redondear"
+          href="/tiendita"
+          onclick="controlNav()"
+          data-navigo
+          >Tiendita</a
+        >
+        <a href="javascript:void(0);" class="icon" onclick="controlNav()">
+          <i class="fa fa-bars"></i>
+        </a>
+      </div>
+      <br /><br />
+      <content id="contenido">
+        <!-- titulos y subtitulos de secciones -->
+        <div id="titulosSecciones" class="dinamicos">
+          <template id="titulos-template">
+            <div
+              id="tituloSecciones"
+              class="titulosSecciones margenes"
+              onerror="this.style.display = 'none'"
+            >
+              {{{cells.titulo}}}
+            </div>
+            <div
+              id="subtituloSecciones"
+              class="subtitulosSecciones center redondear margenes"
+              onerror="this.style.display = 'none'"
+            >
+              {{{cells.subtitulo}}}
+            </div>
+          </template>
+        </div>
+        <hero>
+          <!--  imagenes inicio -->
+
+          <div id="imgsInicio" class="inicio dinamicos">
+            <template id="imgIni-template">
+              <div class="logoInicio">
+                <img
+                  loading="lazy"
+                  class="redondear"
+                  src="{{cells.logoIniURL}}"
+                  alt=""
+                />
+              </div>
+              <div class="imagenInicio">
+                <img
+                  loading="lazy"
+                  class="redondear"
+                  src="{{cells.imagenIniURL}}"
+                  alt=""
+                />
+              </div>
+            </template>
+          </div>
+        </hero>
+
+        <!-- proyectos inicio --->
+
+        <div class="">
+          <div id="tituloInicio" class="dinamicos"></div>
+          <div class="">
+            <div id="programasInicio" class="tiendita dinamicos">
+              <template id="inicio-template">
+                <div class="wrapper">
+                    <div class="container">
+                      <div class="top">
+                        <img loading="lazy" src="{{cells.imgProgramaURL}}" />
+                      </div>
+                      <div class="bottom">
+                        <div class="left">
+                          <div class="details">
+                            <div>{{cells.nombrePrograma}}</div>
+                            <div ><a class="textoRojo" href="{{{cells.urlAdicional}}}">Enlace a Programa</a></div>
+                            <br>
+                          </div>
+                        </div>
+                        <div class="right"></div>
+                      </div>
+                    </div>
+                    <div class="inside">
+                      <div class="icon">
+                        <i class="fa fa-info-circle" aria-hidden="true"></i>
+                      </div>
+                      <div class="contents">{{cells.descripcionPrograma}}</div>
+                    </div>
+                  </div>
+              </template>
+            </div>
+          </div>
+          <div></div>
+        </div>
+
+        <!--Conozcanos --->
+
+        <div id="descripcion" class="descripcion dinamicos">
+          <h1 id="tituloQS" class="titulos"></h1>
+          <template id="desc-template">
+            <p class="descripcion">{{{cells.parrafosDescripcion}}}</p>
+          </template>
+        </div>
+        <div id="tituloProyectos" class="dinamicos"></div>
+        <div id="proyectosLista" class="proyectos dinamicos">
+          <h1 id="tituloPA" class="titulos"></h1>
+          <template id="proy-template">
+            <div>
+              <a href="{{{cells.proyectoURL}}}" target="blank_"
+                ><img
+                  class="imgProyecto"
+                  loading="lazy"
+                  src="{{{cells.logoProyectoURL}}}"
+                />
+              </a>
+              <div class="datoProyecto">
+                <strong>{{{cells.nombreProyecto}}}</strong>
+              </div>
+              <div class="datoProyecto">{{{cells.directoraProyecto}}}</div>
+            </div>
+          </template>
+        </div>
+
+        <!-----Cuadernos------->
+        <div class="">
+          <div class="">
+            <div id="cuadernos" class="cuadernos dinamicos">
+              <template id="cuadernos-template">
+                <a href="#/cuadernos/cuaderno?{{cells.id}}" data-navigo>
+                  <div class="blanco redondear hvr-shrink">
+                    <img
+                      loading="lazy"
+                      class="redondear"
+                      src="{{{cells.portadaURL}}}"
+                      alt=""
+                    />
+                    <div class="fecha">{{{cells.titulo}}}</div>
+                  </div></a
+                >
+              </template>
+            </div>
+          </div>
+        </div>
+
+        <!-----Cuadernos Info------->
+        <div class="">
+          <div class="">
+            <div id="cuadernoContenido" class="cuadernoContenido dinamicos">
+              <template id="tituloCuaderno-template"></template>
+              <template id="cuadernoContenido-template">
+                <a href="{{{cells.portadaURL}}}" data-fancybox><img
+                        class="margenes redondear portadaCuaderno"
+                        loading="lazy"
+                        src="{{{cells.portadaURL}}}"
+                        alt="{{{cells.titulo}}}"
+                        onerror="this.style.display = 'none'"
+                      /></a>
+                <!--img
+                  class="margenes redondear portadaCuaderno"
+                  loading="lazy"
+                  src="{{{cells.portadaURL}}}"
+                  alt="{{{cells.titulo}}}"
+                  onerror="this.style.display = 'none'"
+                /-->
+                <div class="textoCuaderno">
+                  <h1>{{{cells.titulo}}}</h1>
+                  <div>
+                    <span class="botonCategoria">{{cells.categoria}}</span
+                    ><br /><br />
+                  </div>
+
+                  <div class="paper">
+                    <div class="parrafos paper-content">
+                      {{{cells.contenidoCuaderno}}}
+                      <div class="textoRojo">
+                    <i>{{cells.fecha}}</i>
+                  </div>
+                    </div>
+                    
+                  </div>
+
+                  <div class="tarjetaAutora">
+                    <img
+                      loading="lazy"
+                      class="imgAutora"
+                      src="{{cells.imgAutorxURL}}"
+                    />
+                    <pre>  </pre>
+                    Escrito por: {{cells.autorx}}
+                  </div>
+                  
+                </div>
+              </template>
+            </div>
+          </div>
+        </div>
+
+        <!-----Calendario------->
+        <div class="">
+          <div class="">
+            <div id="calendario" class="calendario dinamicos">
+              <template id="calendario-template">
+                <a href="#/calendario/evento?{{cells.id}}" data-navigo>
+                  <div class="eventoCalendario blanco hvr-glow">
+                    <h2 class="fecha">{{{cells.fecha}}}</h2>
+                    <img
+                      loading="lazy"
+                      class="imgCalendario"
+                      src="{{{cells.imgEventoURL}}}"
+                      alt=""
+                    />
+                    <br />
+                    <div class=""><strong>{{{cells.titulo}}}</strong></div>
+                    <div class="">Facilita {{{cells.facilitadorx}}}</div>
+                  </div></a
+                >
+              </template>
+            </div>
+          </div>
+        </div>
+
+        <!-----Calendario Detalle------->
+        <div class="">
+          <div class="">
+            <div id="calendarioContenido" class="calendario dinamicos">
+              <template id="calendarioContenido-template">
+                <div class="eventoCalendario">
+                  <h2 class="blanco center">
+                    Calendario
+                  </h2>
+                  <h1 class="">{{{cells.fecha}}} - {{{cells.titulo}}}</h1>
+                  <div class="calendarioContainer">
+                    <div class="center">
+                      <img
+                        class="imgCalendarioInfo margenes"
+                        loading="lazy"
+                        src="{{{cells.imgEventoURL}}}"
+                        alt=""
+                      />
+                      <div class="blanco redondear left">
+                        <strong>Facilita:</strong>
+                        {{{cells.facilitadorx}}}<br /><br />
+                        <strong
+                          >Conoce más sobre {{{cells.facilitadorx}}}:</strong
+                        >
+                        <a class="textoRojo" href="{{cells.linkFacilitadorx}}"
+                          >{{cells.tipoLinkFacilitadorx}}</a
+                        >
+                      </div>
+                    </div>
+
+                    <div class="">
+                      <div class="blanco redondear">
+                        <strong>Detalles:</strong><br /><br />
+                        {{{cells.detalles}}}
+                        <div></div>
+                      </div>
+
+                      <br />
+                      <div class="blanco redondear">
+                        <div>
+                          <strong>Modalidad:</strong> {{cells.modalidad}}
+                        </div>
+                        <br />
+                        <div>
+                          <strong>Lugar o Enlace:</strong>
+                          <a class="textoRojo" href="{{{cells.linkLugar}}}"
+                            >{{{cells.tipoLink}}}</a
+                          >
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </template>
+            </div>
+          </div>
+        </div>
+
+        <!-----Danza de Saberes------->
+        <div class="">
+          <div class="">
+            <div id="danza" class="danzaCursos dinamicos">
+              <template id="danza-template">
+                <a href="#/danzasaberes/curso?{{cells.idCurso}}" data-navigo>
+                  <div class="curso blanco redondear">
+                    <img
+                      class="imgCurso"
+                      loading="lazy"
+                      src="{{{cells.imgCursoURL}}}"
+                      alt=""
+                    />
+                    <pre>  </pre>
+                    <div class="fecha">{{{cells.titulo}}}</div>
+                    
+                  </div><div class="blanco "><div>
+                  {{{cells.descripcion}}}
+                  </div><br><div>
+                  Facilita: {{{cells.facilitadorx}}}
+                  </div></div></a
+                >
+              </template>
+            </div>
+          </div>
+        </div>
+      
+
+        <!-----Danza de Saberes Modulos------->
+        <div class="">
+          <div class="">
+            <div id="danzaModulos" class="danzaCursos dinamicos">
+              <template id="danzaModulos-template">
+                <a href="#/danzasaberes/mod?{{cells.id}}" data-navigo>
+                  <div class="blanco redondear">
+                    <div class="fecha">{{{cells.titulo}}}</div>
+                  </div></a
+                >
+              </template>
+            </div>
+          </div>
+        </div>
+
+        <!-----Danza de Saberes Modulos Contenido------->
+        <div class="">
+          <div class="">
+            <div id="danzaContenido" class="danzaModulos dinamicos">
+              <template id="danzaModulosContenido-template">
+                <h1 class="">{{{cells.tituloCurso}}} - {{{cells.titulo}}}</h1>
+
+                <div class="danzaCursos margenes">
+                  <div class="blanco redondear">
+                    <h3>Video</h3>
+                    <br /><br />
+                    <div class="iframe redondear">{{{cells.videoURL}}}</div>
+                  </div>
+                  <div class="blanco redondear">
+                    <h3>Información</h3>
+                    <br /><br />
+                    <div class="">{{{cells.descripcion}}}</div>
+                  </div>
+                </div>
+                <div class="danzaCursos margenes">
+                  <div class="blanco redondear">
+                    <h3>Recursos</h3>
+                    <div>{{{cells.descRecursos}}}</div>
+                    <br />
+                    <div class="">{{{cells.recursosURL}}}</div>
+                  </div>
+
+                  <div class="blanco redondear">
+                    <div>
+                      <h3>Foro y Chat</h3>
+                      <div>{{{cells.descForo}}}</div>
+                    </div>
+                    <br />
+                    <iframe
+                      name="embed_readwrite"
+                      src="https://pad.riseup.net/p/{{{cells.idForoChat}}}-keep?showControls=true&showChat=true&showLineNumbers=true&useMonospaceFont=false"
+                      width="100%"
+                      height="400"
+                      frameborder="0"
+                    ></iframe>
+                  </div>
+                </div>
+              </template>
+            </div>
+          </div>
+        </div>
+
+        <!--        Tiendita     -->
+        <div class="">
+          <div class="">
+            <div id="tiendita" class="tiendita dinamicos">
+              <template id="tienda-template">
+                
+                  <div class="wrapper">
+                    <a href="#/tiendita/producto?{{cells.id}}" data-navigo>
+                    <div class="container">
+                      <div class="top">
+                        <img loading="lazy" src="{{cells.imgURL}}" />
+                      </div>
+                      <div class="bottom">
+                        <div class="left">
+                          <div class="details">
+                            <div>{{cells.nombre}}</div>
+                            <p>{{cells.precio}}</p>
+                            <p class="productoInfo">{{cells.modalidad}}</p>
+                          </div>
+                          <div class="buy">
+                            <a
+                              href="https://api.whatsapp.com/send?phone=506{{cells.telefonoContacto}}&text=buenas,%20cu%C3%A1nto%20cuesta%20{{cells.nombre}}"
+                            >
+                              <i class="fa fa-whatsapp" aria-hidden="true"></i
+                            ></a>
+                          </div>
+                        </div>
+                        <div class="right"></div>
+                      </div>
+                    </div>
+                      </a>
+                    <div class="inside active">
+                      <div class="icon">
+                        <i class="fa fa-info-circle" aria-hidden="true"></i>
+                      </div>
+                      <div class="contents">{{cells.resumen}} <!--br><button class="redondear boton" onclick="cerrarInfo()">
+                         Cerrar 
+                        </button--></div>
+                      <div>
+                        
+                        
+                      </div>
+                    </div>
+                  </div>
+                
+              </template>
+            </div>
+          </div>
+        </div>
+
+        <!--      producto Info  -->
+
+        <div class="">
+          <div class="">
+            <div id="tienditaContenido" class="tiendita dinamicos">
+              <template id="tiendaContenido-template">
+                <div class="eventoCalendario">
+                  <h1 class="">{{{cells.nombre}}}</h1>
+                  <div class="calendarioContainer">
+                    <div class="center">
+                      <a href="{{{cells.imgURL}}}" data-fancybox><img
+                        class="imgCalendarioInfo margenes"
+                        loading="lazy"
+                        src="{{{cells.imgURL}}}"
+                        alt=""
+                      /></a>
+                      <div class="blanco redondear left">
+                        <strong>Proveedorx: </strong>
+                        {{{cells.proveedorx}}}<br /><br />
+                        <strong
+                          >Conoce más sobre {{{cells.proveedorx}}} en su:</strong
+                        >
+                        <button>
+                          <a class="textoRojo" href="{{cells.linkProveedorx}}">{{cells.tipoLinkFacilitadorx}}</a>
+                        </button>
+                      </div>
+                    </div>
+
+                    <div class="">
+                      <div class="blanco redondear">
+                        <strong>Detalles:</strong><br /><br />
+                        {{{cells.detalles}}}
+                      </div>
+                      <br />
+                      <div class="blanco redondear">
+                        <div><strong>Precio:</strong> {{cells.precio}}</div>
+                        <br />
+                        <div>
+                          <div class="">
+                            <strong>Comprar: </strong
+                            ><button class="botonContacto"
+                              href="https://api.whatsapp.com/send?phone=506{{cells.telefonoContacto}}&text=buenas,%20cu%C3%A1nto%20cuesta%20{{cells.nombre}}"
+                            >
+                              <strong>Consultar directamente</strong> <i class="fa fa-whatsapp" aria-hidden="true"></i
+                            ></button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </template>
+            </div>
+          </div>
+        </div>
+      </content>
+    </main>
+  </body>
+  <footer>
+    <div>
+      <!---        Pie de pagina        -->
+      <div class="fechaFooter">
+        <div class="center footer-copyright">
+          <div class="container">
+            © - Escuelita de Saberes Libres - <span id="year">2022</span>
+          </div>
+          <div class="container">
+            Web por - <a class="texto-blanco" href="https://smosgasbord.glitch.me" target="_blank">smosgasbord</a>
+          </div>
+        </div>
+      </div>
+      <!---        botones redes       -->
+      <div class="botonesFooter">
+        <a
+          class="boton"
+          href="https://www.instagram.com/escuelitadesabereslibres/"
+          ><i class="fa fa-instagram"></i
+        ></a>
+        <a
+          class="boton"
+          href="https://www.facebook.com/Escuelita-de-Saberes-Libres-100627515090714"
+          ><i class="fa fa-facebook"></i
+        ></a>
+        <a class="boton" href="mailto:escuelitadesaberes@gmail.com"
+          ><i class="fa fa-envelope"></i
+        ></a>
+        <a class="boton" target="_blank" href="https://form.jotform.com/222098730406050"
+          ><i class="fa fa-hand-holding-dollar"></i>Apóyenos</a
+        >
+      </div>
+    </div>
+
+  </footer>
+
+  <!--Dependencias del sitio web-->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-sheetrock/1.1.4/dist/sheetrock.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/3.0.2/handlebars.min.js"></script>
+  <script src="//unpkg.com/navigo"></script>
+  <script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+  <script src="router.js"></script>
+  <script src="script.js"></script>
+
 </html>
