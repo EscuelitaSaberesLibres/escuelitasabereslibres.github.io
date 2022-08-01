@@ -2,7 +2,7 @@
 
 const cambiarBackground = (backgroundId) => {
   const background = ["#A3E4D7","#E6EDEC","#EBDEF0","#D5F5E3","#D5F5E3","#D9D6D4","linen"]
-                     // 0     , 1       ,  2      , 3        ,    4    ,  5     , 6     
+                     // 0 , 1.Calendario,2.Conozcanos,3.Cuadernos,4.---,5.Danza,6.Tiendita
   document.querySelector("#main").style.background = background[backgroundId];
 }
 
